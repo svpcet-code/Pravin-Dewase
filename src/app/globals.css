@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --color-royal-black: #0a0a0f;
+  --color-royal-dark: #12121a;
+  --color-royal-gold: #d4af37;
+  --color-royal-gold-light: #f4e4bc;
+  --color-royal-amber: #ffb347;
+  --color-royal-beige: #e8dcc4;
+  --color-royal-wine: #2a1520;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    background: var(--color-royal-black);
+    color: var(--color-royal-beige);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.35);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(
+      135deg,
+      #f4e4bc 0%,
+      #d4af37 40%,
+      #ffb347 70%,
+      #d4af37 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+  }
+
+  .glow-gold {
+    box-shadow:
+      0 0 30px rgba(212, 175, 55, 0.15),
+      0 0 60px rgba(255, 179, 71, 0.08);
+  }
+
+  .cinematic-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 15, 0.3) 0%,
+      rgba(10, 10, 15, 0.7) 50%,
+      rgba(10, 10, 15, 0.95) 100%
+    );
+  }
+
+  .night-gradient {
+    background: radial-gradient(
+        ellipse at 20% 0%,
+        rgba(42, 21, 32, 0.8) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 80% 20%,
+        rgba(212, 175, 55, 0.08) 0%,
+        transparent 40%
+      ),
+      linear-gradient(180deg, #0a0a0f 0%, #12121a 40%, #1a1520 100%);
+  }
+
+  .light-leak {
+    background: radial-gradient(
+      ellipse at var(--leak-x, 50%) var(--leak-y, 30%),
+      rgba(255, 179, 71, 0.12) 0%,
+      transparent 60%
+    );
+  }
+
+  .hide-cursor {
+    cursor: none !important;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+}
